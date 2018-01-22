@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoggerController">
+
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextArea id="logger" fx:id="logger" layoutX="-1.0" layoutY="139.0" prefHeight="264.0" prefWidth="640.0">
+               <font>
+                  <Font size="16.0" />
+               </font></TextArea>
+            <Label fx:id="status" layoutY="-2.0" prefHeight="140.0" prefWidth="380.0" text="Label">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="queueStatus" layoutX="353.0" layoutY="-2.0" prefHeight="140.0" prefWidth="289.0" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
