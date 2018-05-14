@@ -1,4 +1,4 @@
-public class Card extends Account{
+public class Card{
 
     protected String name;
     protected int money;

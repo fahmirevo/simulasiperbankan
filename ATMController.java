@@ -17,7 +17,7 @@ public class ATMController{
     private ComboBox<String> accountPicker;
 
     @FXML
-    private TextField moneyField;
+    private ComboBox<Integer> moneyPicker;
 
     @FXML
     private PasswordField passwordField;
@@ -34,20 +34,23 @@ public class ATMController{
                 "Diana",
                 "Ennisa"
                 );
+
+        moneyPicker.getItems().addAll(
+                25,
+                50,
+                75,
+                100
+                );
     }
 
     @FXML
     private void handleSubmitButtonOnClick(MouseEvent me){
         String name = accountPicker.getValue();
+        int money = moneyPicker.getValue();
         String password = passwordField.getText();
         String media = "atm";
         String act = "sub";
-        int money;
-        try{
-            money = Integer.parseInt(moneyField.getText());
-        }catch(Exception e){
-            return;
-        }
+
 
         try{
             server.pushCommand(media, name, act, money, password);
