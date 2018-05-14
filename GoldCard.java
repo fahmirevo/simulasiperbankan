@@ -1,10 +1,10 @@
 public class GoldCard extends Card{
 
     protected int depositLimit = 5000;
+    protected int withdrawLimit = 2500;
 
     GoldCard(String name){
         super(name);
-        withdrawLimit = 2500;
     }
 
     public boolean isDepositLimitExceeded(int money){

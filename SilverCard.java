@@ -1,10 +1,10 @@
 public class SilverCard extends Card{
 
     private int depositLimit = 2000;
+    protected int withdrawLimit = 1000;
 
     SilverCard(String name){
         super(name);
-        withdrawLimit = 1000;
     }
 
     public boolean isDepositLimitExceeded(int money){

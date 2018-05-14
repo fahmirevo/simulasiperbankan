@@ -4,7 +4,7 @@ public class Transaction{
     private String action;
     private int money;
     private String key;
-    private boolean force = false;
+    private boolean isBypass = false;
 
     Transaction(Card issuer, String action, int money, String key){
         this.issuer = issuer;
@@ -13,11 +13,11 @@ public class Transaction{
         this.key = key;
     }
 
-    Transaction(Card issuer, String action, int money, boolean force){
+    Transaction(Card issuer, String action, int money, boolean isBypass){
         this.issuer = issuer;
         this.action = action;
         this.money = money;
-        this.force = force;
+        this.isBypass = isBypass;
     }
 
     public int getMoney(){
@@ -29,7 +29,7 @@ public class Transaction{
     }
 
     public boolean isValid(){
-        if(force && action.equals("sub")){
+        if(isBypass && action.equals("sub")){
             return issuer.isEnoughMoney(money);
         }else if(action.equals("sub")){
             return issuer.isOperationValid(action, money, key);
@@ -63,8 +63,8 @@ public class Transaction{
 
     public void serve(){
         if(isValid()){
-            if(force && action.equals("sub")){
-                issuer.subMoney(money, issuer.FORCE);
+            if(isBypass && action.equals("sub")){
+                issuer.subMoney(money, isBypass);
             }else if(action.equals("sub")){
                 issuer.subMoney(money);
             }else{

@@ -1,13 +1,27 @@
 public class Card extends Account{
 
+    protected String name;
+    protected int money;
+
     public String error;
-    public String FORCE = "BYPASS VALIDATION";
     protected int withdrawLimit;
     protected String key = "123456";
 
     Card(String name){
         this.name = name;
         this.money = 0;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public int getMoney(){
+        return this.money;
     }
 
     public boolean authorize(String key){
@@ -83,14 +97,12 @@ public class Card extends Account{
         }
     }
 
-    public boolean subMoney(int money, String force){
-        if(force == this.FORCE && isEnoughMoney(money)){
+    public boolean subMoney(int money, boolean isBypass){
+        if(isBypass && isEnoughMoney(money)){
             this.money -= money;
             return true;
         }else{
             return subMoney(money);
         }
     }
-
 }
-
